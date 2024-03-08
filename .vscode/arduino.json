@@ -1,0 +1,6 @@
+{
+    "port": "COM8",
+    "board": "arduino:avr:uno",
+    "programmer": "avrispmkii",
+    "sketch": "src\\Arduino\\komponents\\GNSS\\GNSS.ino"
+}
