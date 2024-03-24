@@ -82,6 +82,8 @@ char cas_od_spusteni[13]= "000:00:00.00"; //pÅeddefinovÃ¡nÃ­ stringu s Ä
 char posledni_ulozeny_cas[12] ="           ";
 
 void setup() {
+  // Initialization of the SoftwareSerial communication
+  PlaySoundSetup();
   DCF.Start();
   pinMode(KARTA_CS_PIN, INPUT_PULLUP);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
@@ -132,7 +134,6 @@ void zmacknutitlacitka(){
   // funkce pro rozpoznÃ¡nÃ­ zmÃ¡ÄknutÃ­ tlaÄÃ­tka a vykonÃ¡nÃ­ pÅÃ­kazÅ¯ po jeho zmÃ¡ÄknutÃ­
   if (digitalRead(BUTTON_PIN) == LOW) {
     if (!tlacitko_stisknuto) {
-      PlaySound(1,30); // Call the PlaySound function with argument 
       tlacitko_stisknuto = true;
       casOdSpusteni(); // aktualizace cas_od_spusteni
       myFile = SD.open("ZAZNAM.txt", FILE_WRITE);
@@ -148,6 +149,7 @@ void zmacknutitlacitka(){
         // konec pÅÃ­kazÅ¯ vykonanÃ½ch po zmÃ¡ÄknutÃ­ tlaÄÃ­tka
         } else {
         while (1);
+        //PlaySound(2,30); // Call the PlaySound function with argument 
       }
     }
   } else {
@@ -209,13 +211,15 @@ void setiny() {
 
 // Function to play a sound
 void PlaySound(int nazev, int volume){
-  // Initialization of the SoftwareSerial communication
+  myDFPlayer.volume(volume); // Set the volume 0 - 30 
+  myDFPlayer.play(nazev); // Play the mp3 file in the order corresponding to the order variable
+  // zvuk byl vytvořen pomocí: https://ttsmaker.com/cs#google_vignette
+}
+
+void PlaySoundSetup(){
   mySoftwareSerial.begin(9600);
   if (!myDFPlayer.begin(mySoftwareSerial)) 
   {
     while (true);
   }
-  myDFPlayer.volume(volume); // Set the volume 0 - 30 
-  myDFPlayer.play(nazev); // Play the mp3 file in the order corresponding to the order variable
-  // zvuk byl vytvořen pomocí: https://ttsmaker.com/cs#google_vignette
 }
