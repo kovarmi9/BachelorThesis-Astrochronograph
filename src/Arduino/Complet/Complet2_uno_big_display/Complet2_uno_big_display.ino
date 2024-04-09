@@ -69,7 +69,7 @@ time_t time;
 DCF77 DCF = DCF77(DCF_PIN,DCF_INTERRUPT);
 
 // PromÄnnÃ© pro OLED displej
-U8GLIB_SSD1306_128X32 mujOled(U8G_I2C_OPT_NONE); // Objekt pro OLED displej
+U8GLIB_SSD1306_128X64 mujOled(U8G_I2C_OPT_NONE); // Objekt pro OLED displej
 char timeStr[12] = "00:00:00.00"; //promÄnnÃ¡ pro uklÃ¡dÃ¡nÃ­ Äasu ve formÃ¡tu HH:MM:SS:SS
 char sd_string[4] = "..."; //promÄnnÃ¡ pro uklÃ¡dÃ¡nÃ­ stavu SD karty
 char cas_string[4] = "..."; //promÄnnÃ¡ pro uklÃ¡dÃ¡nÃ­ stavu signÃ¡lu DCF77

@@ -50,7 +50,7 @@
 #include <DCF77.h> // Knihovna pro pÅipojenÃ­ k DCF 77
 #include <TimeLib.h>// Knihovna pro prÃ¡ci s Äasem
 #include <SD.h> // Knihovna pro prÃ¡ci s SD kartou
-#include <U8glib.h> // Knihovna pro prÃ¡ci s OLED displejem
+#include <U8g2lib.h> // Knihovna pro prÃ¡ci s OLED displejem
 
 // PromÄnnÃ© pro DCF 77
 unsigned long lastTime = 0;
@@ -65,11 +65,11 @@ SoftwareSerial mySoftwareSerial(5, 6); // RX, TX
 // Create a DFRobotDFPlayerMini instance
 DFRobotDFPlayerMini myDFPlayer;
 
-time_t time;
+time_t Time;
 DCF77 DCF = DCF77(DCF_PIN,DCF_INTERRUPT);
 
 // PromÄnnÃ© pro OLED displej
-U8GLIB_SSD1306_128X32 mujOled(U8G_I2C_OPT_NONE); // Objekt pro OLED displej
+U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE); // Software I2C // Objekt pro OLED displej
 char timeStr[12] = "00:00:00.00"; //promÄnnÃ¡ pro uklÃ¡dÃ¡nÃ­ Äasu ve formÃ¡tu HH:MM:SS:SS
 char sd_string[4] = "..."; //promÄnnÃ¡ pro uklÃ¡dÃ¡nÃ­ stavu SD karty
 char cas_string[4] = "..."; //promÄnnÃ¡ pro uklÃ¡dÃ¡nÃ­ stavu signÃ¡lu DCF77
@@ -82,7 +82,7 @@ char cas_od_spusteni[13]= "000:00:00.00"; //pÅeddefinovÃ¡nÃ­ stringu s Ä
 char posledni_ulozeny_cas[12] ="           ";
 
 void setup() {
-  // Initialization of the SoftwareSerial communication
+  u8g2.begin();
   PlaySoundSetup();
   DCF.Start();
   pinMode(KARTA_CS_PIN, INPUT_PULLUP);
@@ -110,24 +110,20 @@ void kartaLoop() {
 
 
 void zobrazitNaDisplay(const char* cas, const char* sd, const char* dcf,const char* zmereny_cas) {
-/* PouÅ¾itÃ© fonty:
- * fonty lze mÄnit podle: https://github.com/olikraus/u8glib/wiki/fontsize
- * Adobe X11 Font
- * u8g_font_courB14
- * u8g_font_courR08
+/* 
+ * fonty lze mÄnit podle: https://github.com/olikraus/u8g2/wiki
  */
-  mujOled.firstPage();
+  u8g2.firstPage();
   do {
-    mujOled.setFont(u8g_font_courB14);
-    mujOled.drawStr(0, 12, cas);
-    mujOled.setFont(u8g_font_courR08);
-    mujOled.drawStr(0, 32, zmereny_cas);
-    mujOled.setFont(u8g_font_courR08);
-    mujOled.drawStr(92, 24, "SD:");
-    mujOled.drawStr(110, 24, sd);
-    mujOled.drawStr(86, 32, "DCF:");
-    mujOled.drawStr(110, 32, dcf);
-  } while ( mujOled.nextPage() );
+    u8g2.setFont(u8g2_font_9x18_tr);
+    u8g2.drawStr(5, 15, timeStr);
+    u8g2.setFont(u8g2_font_6x12_tr);
+    //u8g2.drawStr(5, 60, zmereny_cas);
+    u8g2.drawStr(92, 30, "SD:");
+    u8g2.drawStr(110, 30, sd_string);
+    u8g2.drawStr(86, 40, "DCF:");
+    u8g2.drawStr(110, 40, cas_string);
+  } while (u8g2.nextPage());
 }
 
 void zmacknutitlacitka(){
