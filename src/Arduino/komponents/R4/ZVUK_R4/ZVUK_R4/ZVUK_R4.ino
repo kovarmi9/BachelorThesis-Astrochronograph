@@ -1,3 +1,7 @@
+/*
+Modul co mám já má prohorezný RX TX tak je potřeba prohodit kabely pokud to nefunguje
+*/
+
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
