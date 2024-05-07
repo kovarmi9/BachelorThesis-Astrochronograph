@@ -5,8 +5,8 @@
 // D0, D1, D2, D3, D8, D14, D15, A1, A2, A3, A4, A5
 
 // nastavení propojovacích pinů Bluetooth a LED diody
-#define RX A5
-#define TX A4
+#define RX A3
+#define TX A2
 #define pinLED 13
 // připojení knihovny SoftwareSerial
 #include <SoftwareSerial.h>

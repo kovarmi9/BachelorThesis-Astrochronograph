@@ -1,11 +1,8 @@
-/*
-Modul co mám já má prohorezný RX TX tak je potřeba prohodit kabely pokud to nefunguje
-*/
-
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
-SoftwareSerial mySoftwareSerial(A5, A4); // RX, TX
+SoftwareSerial mySoftwareSerial(A1, A0); // TX, RX
+//SoftwareSerial mySoftwareSerial(D3, D1); // TX, RX
 DFRobotDFPlayerMini myDFPlayer;
 
 void setup(){

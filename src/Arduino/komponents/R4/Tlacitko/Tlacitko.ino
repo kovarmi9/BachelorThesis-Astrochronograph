@@ -1,6 +1,6 @@
 #include "Tlacitko.h"
 
-Tlacitko tlacitko(3, 4, 5);
+Tlacitko tlacitko(7, 5, 4);
 
 void setup() {
   Serial.begin(9600);

@@ -1,9 +1,9 @@
 // Rotační enkodér KY-040
 
 // proměnné pro nastavení propojovacích pinů
-int pinCLK = 3;
-int pinDT  = 4;
-int pinSW  = 5;
+int pinCLK = 6;
+int pinDT  = 5;
+int pinSW  = 4;
 
 // proměnné pro uložení pozice a stavů pro určení směru
 // a stavu tlačítka
