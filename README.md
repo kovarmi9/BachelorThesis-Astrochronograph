@@ -1,4 +1,4 @@
-# BachelorThesis-AstroTimeDevice
+# BachelorThesis-Astrochronograph
 
 This repository contains files created for a Bachelor’s Thesis on the topic of ‘Development of a device for receiving and recording coordinated time for astronomical measurement purposes’. It includes the source code of the application and the LaTeX code of the thesis.
 
@@ -31,4 +31,4 @@ This repository contains files created for a Bachelor’s Thesis on the topic of
     └── Presentation.pdf                         # Presentation document in PDF format
 </pre>
 **Circuit schematics:**
-![Popis obrázku](https://github.com/kovarmi9/BachelorThesis-AstroTimeDevice/raw/main/src/LaTex/Schema_zapojeni.png)
+![Popis obrázku](https://github.com/kovarmi9/BachelorThesis-Astrochronograph/raw/main/src/LaTex/Schema_zapojeni.png)
