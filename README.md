@@ -30,5 +30,5 @@ This repository contains files created for a Bachelor’s Thesis on the topic of
     ├── Thesis.pdf -                             # Thesis document in PDF format
     └── Presentation.pdf                         # Presentation document in PDF format
 </pre>
-
-
+**Circuit schematics:**
+![Popis obrázku](https://github.com/kovarmi9/BachelorThesis-AstroTimeDevice/raw/main/src/LaTex/Schema_zapojeni.png)
