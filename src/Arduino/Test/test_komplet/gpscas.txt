@@ -1,0 +1,55 @@
+void setup() {
+  Serial.begin(9600); // Inicializace sériového monitoru
+  Serial1.begin(9600); // Inicializace GNSS modulu
+
+  Serial.println("Čekání na NMEA zprávy s časem...");
+}
+
+void loop() {
+  while (Serial1.available() > 0) {
+    String nmeaSentence = Serial1.readStringUntil('\n'); // Přečti celou NMEA zprávu až do konce řádku
+    if (nmeaSentence.startsWith("$GNRMC") || nmeaSentence.startsWith("$GNGGA")) {
+      String parts[15]; // Pole pro uložení oddělených částí zprávy
+      int partIndex = 0;
+      // Rozdělení zprávy na části oddělené čárkami
+      int pos = 0;
+      while (nmeaSentence.indexOf(',', pos) != -1) {
+        int newPos = nmeaSentence.indexOf(',', pos);
+        parts[partIndex++] = nmeaSentence.substring(pos, newPos);
+        pos = newPos + 1;
+      }
+      parts[partIndex] = nmeaSentence.substring(pos);
+
+      // Identifikace zprávy obsahující čas
+      if (nmeaSentence.startsWith("$GNRMC")) {
+        // Časová informace se obvykle nachází na 1. pozici v pole parts
+        String timeStr = parts[1];
+        // Extrahuj hodiny, minuty a sekundy
+        String hourStr = timeStr.substring(0, 2);
+        String minuteStr = timeStr.substring(2, 4);
+        String secondStr = timeStr.substring(4, 6);
+        // Vypiš čas
+        Serial.print("Čas: ");
+        Serial.print(hourStr);
+        Serial.print(":");
+        Serial.print(minuteStr);
+        Serial.print(":");
+        Serial.println(secondStr);
+      } else if (nmeaSentence.startsWith("$GNGGA")) {
+        // Časová informace se obvykle nachází na 1. pozici v pole parts
+        String timeStr = parts[1];
+        // Extrahuj hodiny, minuty a sekundy
+        String hourStr = timeStr.substring(0, 2);
+        String minuteStr = timeStr.substring(2, 4);
+        String secondStr = timeStr.substring(4, 6);
+        // Vypiš čas
+        Serial.print("Čas: ");
+        Serial.print(hourStr);
+        Serial.print(":");
+        Serial.print(minuteStr);
+        Serial.print(":");
+        Serial.println(secondStr);
+      }
+    }
+  }
+}

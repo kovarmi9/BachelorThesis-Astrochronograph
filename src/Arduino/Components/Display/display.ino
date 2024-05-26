@@ -1,4 +1,4 @@
-#include "display.h"
+#include "Display.h"
 
 unsigned long currentMillis = 0;
 

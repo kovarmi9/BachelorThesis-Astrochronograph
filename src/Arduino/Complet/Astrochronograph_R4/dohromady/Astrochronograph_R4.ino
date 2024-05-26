@@ -52,10 +52,6 @@
 #include <SD.h> // Knihovna pro prÃ¡ci s SD kartou
 #include <U8g2lib.h> // Knihovna pro prÃ¡ci s OLED displejem
 
-// moje hlavičkové soubory
-#include "Display.h"
-#include "Sound.h"
-
 // PromÄnnÃ© pro DCF 77
 unsigned long lastTime = 0;
 char milliString[4] = ".00";
@@ -110,6 +106,21 @@ void kartaLoop() {
   else {
     strcpy(sd_string, " OK");
   }
+}
+
+void zobrazitNaDisplay(const char* cas, const char* sd, const char* dcf,const char* zmereny_cas) {
+  // fonty lze mÄnit podle: https://github.com/olikraus/u8g2/wiki
+  u8g2.firstPage();
+  do {
+    u8g2.setFont(u8g2_font_9x18_tr);
+    u8g2.drawStr(5, 15, timeStr);
+    u8g2.setFont(u8g2_font_6x12_tr);
+    //u8g2.drawStr(5, 60, zmereny_cas);
+    u8g2.drawStr(92, 30, "SD:");
+    u8g2.drawStr(110, 30, sd_string);
+    u8g2.drawStr(86, 40, "DCF:");
+    u8g2.drawStr(110, 40, cas_string);
+  } while (u8g2.nextPage());
 }
 
 void zmacknutitlacitka(){
