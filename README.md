@@ -31,4 +31,4 @@ This repository contains files created for a Bachelor’s Thesis on the topic of
     └── Presentation.pdf                         # Presentation document in PDF format
 </pre>
 **Circuit schematics:**
-![Popis obrázku](https://github.com/kovarmi9/BachelorThesis-Astrochronograph/raw/main/src/LaTex/Schema_zapojeni.png)
+![Popis obrázku](https://github.com/kovarmi9/BachelorThesis-Astrochronograph/raw/main/src/LaTex/Schema_zapojeni_2.png)
