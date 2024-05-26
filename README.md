@@ -4,10 +4,10 @@ This repository contains files created for a Bachelor’s Thesis on the topic of
 
 **Srtucture of repository:**
 <pre>
-├── README.md                                  # Documentation
-│   ├── src                                    # Source code folder
-│   │   ├── Arduino                            # Arduino codes
-│   │   │   ├── Components                     # Codes for individual components
+├── README.md                                    # Documentation
+│   ├── src                                      # Source code folder
+│   │   ├── Arduino                              # Arduino codes
+│   │   │   ├── Components                       # Codes for individual components
 │   │   │   │   ├── BLE
 │   │   │   │   ├── Bluetooth
 │   │   │   │   ├── DCF77_time
