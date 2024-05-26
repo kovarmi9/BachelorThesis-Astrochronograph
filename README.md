@@ -4,16 +4,16 @@ This repository contains files created for a Bachelor’s Thesis on the topic of
 
 **Srtucture of repository:**
 <pre>
-├── README.md                                  # Documentation
-│   ├── src                                    # Source code folder
-│   │   ├── Arduino                            # Arduino codes
-│   │   │   ├── Components                     # Codes for individual components
+├── README.md                                    # Documentation
+│   ├── src                                      # Source code folder
+│   │   ├── Arduino                              # Arduino codes
+│   │   │   ├── Components                       # Codes for individual components
 │   │   │   │   ├── BLE
 │   │   │   │   ├── Bluetooth
 │   │   │   │   ├── DCF77_time
 │   │   │   │   ├── Display
-│   │   │   │   ├── GNSS_time_R3
-│   │   │   │   ├── GNSS_time_R4
+│   │   │   │   ├── GNSS_time
+│   │   │   │   ├── NTP
 │   │   │   │   ├── RGB_LED
 │   │   │   │   ├── Rotarry_encoder
 │   │   │   │   ├── RTC
@@ -24,7 +24,8 @@ This repository contains files created for a Bachelor’s Thesis on the topic of
 │   │   │   │   ├── Astro-Chronograph_R3
 │   │   │   │   └── Astro-Chronograph_R4
 │   │   │   └── Test                             # Arduino codes for testing time synchronization
-│   │   └── LaTeX                                # LaTeX source code of the bachelor thesis
+│   │   ├── LaTeX                                # LaTeX source code of the bachelor thesis
+│   │   └── R                                    # Processing of testing data
 ├── Eagle                                        # Circuit schematics and PCB design
 └── Text - Text                                  # Text of the Thesis
     ├── Thesis.pdf -                             # Thesis document in PDF format
