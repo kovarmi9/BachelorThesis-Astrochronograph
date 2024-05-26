@@ -1,10 +1,4 @@
-#include "SoftwareSerial.h"
-
-#define RX 9
-#define TX 10
-
-// inicializace příkazu serial z knihovny SoftwareSerial
-SoftwareSerial Stroj(TX, RX);
+#include "TS_Reader.h"
 
 void setup() {
   Stroj.begin(9600);
