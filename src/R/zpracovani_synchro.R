@@ -1,19 +1,19 @@
 # Nastavení pracovního adresáře
 setwd("C:/Users/kovar/Desktop/Bakalářka/BachelorThesis-Astrochronograph/src/R")
 
-# Načtení dat z CSV souboru
+# Načtení dat z CSV souboru s oddělením středníkem
 data <- read.csv("synchro.csv", header = FALSE, sep = ";")
 
-# Přejmenování sloupců na 'Time'
+# Vytvoření sloupce Time
 names(data) <- c("Time")
 
-# Převedení sloupce 'Time' na formát POSIXct
+# Převedení sloupce Time na formát POSIXct (pro práci s časem)
 data$Time <- as.POSIXct(data$Time, format = "%H:%M:%S %d %m %Y")
 
-# Vytvoření nového sloupce 'Hour', který obsahuje hodinu každé synchronizace
+# Vytvoření nového sloupce Hour, který obsahuje hodinu každé synchronizace
 data$Hour <- as.integer(format(data$Time, "%H"))
 
-# Vytvoření histogramu počtu synchronizací v jednom dni
+# Vytvoření histogramu počtu synchronizací za hodinu
 library(ggplot2)
 plot <- ggplot(data, aes(x = Hour)) +
   geom_histogram(binwidth = 1, color = "black", fill = "skyblue", alpha = 0.7) +
@@ -25,7 +25,7 @@ plot <- ggplot(data, aes(x = Hour)) +
     plot.title = element_text(hjust = 0.5),
     panel.grid.major.x = element_blank(),  # Vypnutí svislých čar v mřížce
     panel.grid.major.y = element_line(color = "grey"),  # Vodorovné čáry v mřížce
-    axis.title.x = element_text(margin = margin(t = 10))  # Posunutí popisu osy X blíže k ose
+    axis.title.x = element_text(margin = margin(t = 10))
   )
 
 # Zobrazení grafu
