@@ -1,0 +1,33 @@
+# Převod časových sloupců na formát POSIXct
+data$Uptime <- as.POSIXct(data$Uptime, format = "%H:%M:%OS")
+data$NTP <- as.POSIXct(data$NTP, format = "%H:%M:%OS")
+data$DCF77 <- as.POSIXct(data$DCF77, format = "%H:%M:%OS")
+data$GPS <- as.POSIXct(data$GPS, format = "%H:%M:%OS")
+
+# Výpočet odchylek od času Arduino
+data$NTP_diff <- as.numeric(data$NTP - data$Uptime)
+data$DCF77_diff <- as.numeric(data$DCF77 - data$Uptime)
+data$GPS_diff <- as.numeric(data$GPS - data$Uptime)
+
+# Vykreslení boxplotů
+library(ggplot2)
+ggplot(data, aes(x = NULL, y = NTP_diff)) + geom_boxplot() + labs(y = "Odchylka od času Arduino (s)", title = "NTP")
+ggplot(data, aes(x = NULL, y = DCF77_diff)) + geom_boxplot() + labs(y = "Odchylka od času Arduino (s)", title = "DCF77")
+ggplot(data, aes(x = NULL, y = GPS_diff)) + geom_boxplot() + labs(y = "Odchylka od času Arduino (s)", title = "GPS")
+
+# Převod časových sloupců na formát POSIXct
+data$Uptime <- as.POSIXct(data$Uptime, format = "%H:%M:%OS")
+data$NTP <- as.POSIXct(data$NTP, format = "%H:%M:%OS")
+data$DCF77 <- as.POSIXct(data$DCF77, format = "%H:%M:%OS")
+data$GPS <- as.POSIXct(data$GPS, format = "%H:%M:%OS")
+
+# Výpočet odchylek od času Arduino
+data$NTP_diff <- as.numeric(data$NTP - data$Uptime)
+data$DCF77_diff <- as.numeric(data$DCF77 - data$Uptime)
+data$GPS_diff <- as.numeric(data$GPS - data$Uptime)
+
+# Vykreslení boxplotů
+library(ggplot2)
+ggplot(data, aes(x = NULL, y = NTP_diff)) + geom_boxplot() + labs(y = "Odchylka od času Arduino (s)", title = "NTP")
+ggplot(data, aes(x = NULL, y = DCF77_diff)) + geom_boxplot() + labs(y = "Odchylka od času Arduino (s)", title = "DCF77")
+ggplot(data, aes(x = NULL, y = GPS_diff)) + geom_boxplot() + labs(y = "Odchylka od času Arduino (s)", title = "GPS")
