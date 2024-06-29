@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%													                                                 %%
+%% 	                        BAKALÁŘSKÁ PRÁCE 		                                                 %%
+%% 				            Michal Kovář			                                                 %%
+%%													                                                 %%
+%% pro formátování využita šablona: http://geo3.fsv.cvut.cz/kurzy/mod/resource/view.php?id=775     	 %%
+%%                                  https://people.fsv.cvut.cz/~soukup/dip/horcickova/horcickova.pdf %%
+%%													                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\documentclass[
+  12pt,         			% Velikost základního písma je 12 bodů
+  a4paper,      			% Formát papíru je A4
+  oneside,       			% Oboustranný tisk
+  pdftex,				    % překlad bude proveden programem 'pdftex' do PDF
+  %twoside                % zarovnaní stran pro oboustranný tisk
+]{report}       		  % Dokument třídy 'zpráva'
+
+\newcommand{\Fbox}[1]{\fbox{\strut#1}}
+
+\usepackage[czech, english]{babel}	% použití češtiny, angličtiny
+\usepackage[utf8]{inputenc}		% Kódování zdrojových souborů je UTF8
+
+\usepackage[square,sort,comma,numbers]{natbib}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font=small}
+\usepackage{enumitem} 
+\setlist{leftmargin=*} % bez odsazení
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatletter
+
+\usepackage[dvips]{graphicx}   
+\usepackage{color}
+\usepackage{transparent}
+\usepackage{wrapfig}
+\usepackage{float} 
+
+\usepackage{cmap}           
+\usepackage[T1]{fontenc}    
+
+\usepackage{textcomp}
+\usepackage[compact]{titlesec}
+\usepackage{amsmath}
+\addtolength{\jot}{1em} 
+
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+\usepackage{acronym}
+
+\usepackage[
+    unicode,                
+    breaklinks=true,        
+    hypertexnames=false,
+    colorlinks=true, % true for print version
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+]{hyperref}         
+
+\usepackage{url}
+\usepackage{fancyhdr}
+%\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{algcompatible}
+\renewcommand{\ALG@name}{Pseudokód}% Update algorithm name
+\def\ALG@name{Pseudokód}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%													                                                 %%
+%%                                     úpravy šablony - Michal Kovář                                 %%
+
+% pro spuštění vlny na celý adresář: for /R %i in (*.tex) do vlna.exe "%i"
+
+\usepackage{pdfpages}% pro přidání celé stránky pdf na radu Filipa
+\usepackage{dirtree}% pro tvorubu struktury adresáře
+\newcommand\dottedline{\leavevmode\cleaders\hbox to 2.9mm{\hfil.\hfil}\hfill\kern0pt}
+\usepackage{marvosym}% znak eura a jarního bodu
+\usepackage{qrcode} %tvorba QR kodu na který lze i kliknout
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{tikz-3dplot}
+\usepackage{eurosym}% pro symbol eura
+%\usepackage{ragged2e}% pro vyrovnání do bloku příkazem \justifying
+\usepackage{listings}%pro psaní kodu
+%\usepackage[none]{hyphenat}% na radu od Filipa pro nazalomování slov
+
+% VLNA JE ZKOMPILOVANÁ NA WINDOWS 10
+% Pro spuštění na konkrétní soubor je potřeba mít ten soubor a vlnu v jednom adresáři a zadat příkaz: vlna nazev_souboru.tex
+% Pro spuštení na všechny tex soubory v adresáři, kde je vlna a i na všechny soubory v podadresáři slouží příkaz: for /R %i in (*.tex) do vlna.exe "%i"
+
+
+
+% Definice vlastního příkazu \tg a \cotg
+\newcommand{\tg}{\mathrm{tg}}                                                                        %%
+\newcommand{\cotg}{\mathrm{cotg}}                                                                    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[
+  cvutstyle,          
+  bachelor           
+]{thesiscvut}
+
+
+\newif\ifweb
+\ifx\ifHtml\undefined % Mimo HTML.
+    \webfalse
+\else % V HTML.
+    \webtrue
+\fi 
+
+\renewcommand{\figurename}{Obrázek}
+\def\figurename{Obrázek}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Definice informací o dokumentu  %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Název práce
+\nazev{Vývoj zařízení pro příjem a záznam koordinovaného času pro účely astronomického měření}
+{sdgfdg}%Vývoj zařízení pro záznam času při a astronomickém měření
+
+%Development of a Device for the Reception and Recording of Coordinated Universal Time for Astronomical Measurement Purposes
+%Development of devices for receiving and recording coordinated time for astronomical measurement purposes
+
+%% Jméno a příjmení autora
+\autor{Michal}{Kovář}
+
+%% Jméno a příjmení vedoucího práce včetně titulů
+\garant{Ing.~Zdeněk~Vyskočil,~Ph.D.}
+
+%% Označení programu studia
+\programstudia{Geodézie a~kartografie}{}
+
+%% Označení oboru studia
+\oborstudia{GEODÉZIE, KARTOGRAFIE A GEOINFORMATIKA}{}
+
+%% Označení ústavu
+\ustav{Katedra geomatiky}{}
+
+%% Rok obhajoby
+\rok{2024}
+
+%Mesic obhajoby
+\mesic{červen}
+
+%% Místo obhajoby
+\misto{Praha}
+
+%% Abstrakt
+\abstrakt {Tato bakalářská práce se zabývá vývojem zařízení, které je schopné přijímat a zaznamenávat koordinovaný čas (UTC) pro účely astronomického měření v geodézii. Nejprve je popsána teorie časových soustav a teorie astronomického měření, včetně požadavků na přesnost určení času. Následně jsou popsány možnosti příjmu koordinovaného času. Práce dále popisuje jednotlivé komponenty využité pro tvorbu tohoto zařízení. Je popsána konstrukce výsledného zařízení a řídící program, který zařízení ovládá. Na závěr je testována funkčnost zařízení.}{This bachelor’s thesis deals with the development of a device that is able to receive and record Coordinated Universal Time (UTC) for the purposes of astronomical measurements in geodesy. Initially, the theory of time systems and principles of astronomical measurement are described, including the specification of accuracy requirements for time determination. Subsequently, the possibilities for receiving coordinated time are explored. The thesis further describes the individual components used for the creation of this device. It details the construction of the resulting device and the control program that operates it. At the end, the functionality of the device is tested.}
+
+%% Klíčová slova
+\klicovaslova
+{astronomické měření, astronomický azimut, časové soustavy, UTC, synchronizace času, Arduino, NTP, DCF77, GNSS}
+{astronomical measurement, astronomical azimuth, time systems, UTC, time synchronization, Arduino, NTP, DCF77, GNSS}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nastavení polí ve Vlastnostech dokumentu PDF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nastavenipdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Začátek dokumentu
+\begin{document}
+
+\catcode`\-=12  % pro vypnuti aktivniho znaku '-' pouzivaneho napr. v \cline 
+
+% aktivace záhlaví
+\zahlavi
+
+% předefinování vzhledu záhlaví
+\renewcommand{\chaptermark}[1]{%
+	\markboth{\MakeUppercase
+	{%
+	\thechapter.%
+	\ #1}}{}}
+
+% Vysázení přebalu práce
+%\vytvorobalku
+
+% Vysázení titulní stránky práce
+\vytvortitulku {}
+
+\stranka{}%
+	{\includepdf[pages=1, offset=15mm -10mm]{./images/zadani/zadani.pdf}
+	}
+
+% % Vysázení listu zadani
+% \stranka{}%
+% 	{\includegraphics[scale=0.65]{./images/zadani/zadani.pdf}
+% 	}%\sffamily\Huge\centering\ }%ZDE VLOŽIT LIST ZADÁNÍ}%
+% 	%{\sffamily\centering Z~důvodu správného číslování stránek}
+
+%\stranka{}{    \includepdf[scale=1]{./images/zadani/zadani.pdf}}
+
+% Vysázení stránky s abstraktem
+\vytvorabstrakt
+
+% Vysázení prohlaseni o samostatnosti
+\vytvorprohlaseni
+
+% Vysázení poděkování
+\stranka{%nahore
+       }{%uprostred
+       }{%dole
+       \sffamily
+	\begin{flushleft}
+		\large
+		\MakeUppercase{Poděkování}
+	\end{flushleft}
+	\vspace{1em}
+		%\noindent
+	\par\hspace{2ex}
+	{Chtěl bych poděkovat Ing.~Zdeňku~Vyskočilovi, Ph.D za jeho ochotu a velké množství cenných rad při vedení této bakalářské práce. Dále bych chtěl poděkovat Ing.~Janu~Holešovskému za rady ohledně průběhu astronomického měření a v neposlední řadě paní Kerstin Eisold za zakoupení součástek, které nebyly v České republice dostupné. Velké poděkování také patří mé rodině za podporu během celého studia.}
+}% Kerstin Eisold
+
+% Vysázení obsahu
+\obsah
+
+% Vysázení seznamu obrázků
+\seznamobrazku
+
+% Vysázení seznamu tabulek
+\seznamtabulek
+
+% jednotlivé kapitoly
+\include{tex/1-uvod}
+\include{tex/2-reserse}
+\include{tex/3-teorie-cas}
+\include{tex/4-teorie-astronomicke-mereni}
+\include{tex/5-teorie-urceni-casu}
+\include{tex/6-vyvoj-zarizeni-komponenty}
+\include{tex/7-vyvoj-zarizeni-konstrukce}
+\include{tex/8-vyvoj-zarizeni-ridici-software}
+\include{tex/9-testovani}
+\include{tex/10-zaver}
+
+% Vysázení seznamu zkratek
+\include{zkratky}
+
+% Literatura
+\nocite{*}
+\def\refname{Literatura}
+\bibliographystyle{mystyle}
+\bibliography{literatura}
+
+
+% Začátek příloh
+\def\figurename{Figure}%
+%\prilohy
+
+% Vysázení seznamu příloh
+\seznampriloh
+
+% Vložení souboru s přílohami
+\include{prilohy}
+
+% Konec dokumentu
+\end{document}

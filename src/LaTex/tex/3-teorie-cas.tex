@@ -1,0 +1,47 @@
+\chapter{Teorie - Čas}
+\label{3-teorie-cas}
+Aby bylo možné měřit čas, je potřeba sledovat periodicky se opakující jev. V~minu\-losti se předpokládalo, že rotace Země je rovnoměrná, a tak se pro měření času využívalo měření zdánlivého pohybu nebeských objektů, který je daný rotací Země kolem své osy. Časy vycházející z~rotace Země se nazývají rotační časy. \text{Vzhledem} k~nerovnoměrné rotaci Země, způsobené vlivem precese a nutace, bylo potřeba \text{definovat} čas přesněji. K~tomu se využívají fyzikálně definované časy, které \text{nejsou} navázané na rotaci Země \cite{fixel_geodeticka_astronomie}.
+
+\section{Rotační časy}
+Všechny rotační časy jsou odvozené od nerovnoměrné rotace Země a jsou tedy také nerovnoměrné. Rotační časy lze dělit na místní a světové. Místní časy se \text{vztahují} k~astronomické zeměpisné délce pozorovatele \(\lambda\). Světové (greenwichské) jsou \text{vztažené} k~základnímu (greenwichskému) poledníku. Podle toho, zda rotační časy vychází ze zdánlivého pohybu jarního bodu {\Aries} nebo Slunce, je lze dále dělit na časy hvězdné a časy sluneční \cite{kostelecky_geodeticka_astronomie}.
+
+\subsection{Rotační časy hvězdné}%%% nutný přeformulovat
+Hvězdné časy jsou definovány jako hodinový úhel jarního bodu \textbf{\Aries}. %, což je úhel mezi směrem k jarnímu bodu \textbf{\Aries} a poledníkem měřený v rovině rovníku.
+Světové hvězdné časy jsou vztaženy k~základnímu (Greenwichskému) poledníku a jsou tedy \text{definovány} jako úhel, který je měřený mezi směrem k~jarnímu bodu \textbf{\Aries} a základním \text{poledníkem} \text{v~rovině} rovníku. Místní hvězdné časy jsou definovány analogicky, avšak namísto k~základnímu poledníku se vztahují k~místnímu poledníku. Hvězdný den je \text{definovaný} jako časový interval mezi dvěma po sobě jdoucími horními kulminacemi jarního bodu. Dále lze hvězdné časy dělit na pravé a střední. Pravé hvězdné časy jsou \text{vztaženy} k~pravému jarnímu bodu a jsou ovlivněny precesí i nutací. Střední hvězdné časy jsou vztažené ke střednímu jarnímu bodu a jsou ovlivněné pouze \text{precesí}. Rozdíl pravého místního hvězdného času \(s\) a pravého světového hvězdného času \(S\) je \text{totožný}, jako rozdíl středního místního hvězdného času \(\overline{s}\) a středního \text{světového} \text{hvězdného} času \(\overline{S}\). Tento rozdíl je zároveň roven astronomické zeměpisné šířce \text{místního} \text{poledníku} \(\lambda\) \cite{kostelecky_geodeticka_astronomie}.
+\begin{equation}
+    s-S=\overline{s}-\overline{S}=\lambda
+\end{equation}
+
+\subsection{Rotační časy sluneční}
+Smysl zavedení slunečních časů spočívá v~tom, že sluneční časy korespondují s~naším vnímáním světla a tmy. Sluneční den je definován jako časový interval mezi dvěma po sobě jdoucími dolními kulminacemi Slunce. V~důsledku rotace Země kolem Slunce urazí Země každý den v~rovině ekliptiky více než 1°, což mění směr ke Slunci a způsobuje, že sluneční den je zhruba o~4 minuty delší, než hvězdný den \cite{fixel_geodeticka_astronomie}. Sluneční časy lze rozdělit na pravé sluneční časy a střední sluneční časy. Pravé sluneční časy vychází ze zdánlivého pohybu pravého (skutečného) Slunce. Střední sluneční časy vychází z~pohybu fiktivního středního Slunce, které se pohybuje rovnoměrně v~rovině rovníku. Často používaným časovým standardem je střední světový sluneční čas (UT) \cite{kostelecky_geodeticka_astronomie}.
+
+\section{Fyzikální časy}
+Fyzikálně definované časy vznikly kvůli nedostatečné přesnosti rotačních časů, způ\-sobené nerovnoměrnou rotací Země. Pro dosažení vyšší přesnosti při určování času je zapotřebí měřit stabilnější, periodicky se opakující jev. V~praxi se nejčastěji využívají hodiny, které jsou založené na měření kmitání atomu cesia. Tyto hodiny se nazývají cesiové atomové hodiny. Z~měření kmitů atomu cesia vychází atomová sekunda, která je základní jednotkou času podle mezinárodního systému jednotek (SI) \cite{kostelecky_geodeticka_astronomie}.
+
+\section{Časové soustavy}%https://lweb.cfa.harvard.edu/ jzhao/times.html#ert
+Jelikož je čas odvozený z~rotace Země nerovnoměrný, tak mezinárodní časová služba (BIH) zavedla soustavu světových časů \cite{fixel_geodeticka_astronomie}.
+
+\subsection{Univerzální čas UT0}
+Jde o~střední světový sluneční čas (UT), který je vázaný k~místu měření, jelikož je ovlivňován pohybem pólu vzhledem k~danému místu měření \cite{kostelecky_geodeticka_astronomie}.
+
+\subsection{Univerzální čas UT1}
+Nerovnoměrnosti v~čase UT0, způsobené kolísáním pravého pólu, jsou v~čase UT1 eliminovány zavedením redukce na střední polohu pólu \(\Delta\lambda_p\) \cite{kostelecky_geodeticka_astronomie}.
+\begin{equation}
+    UT1=UT0-\Delta\lambda_p
+\end{equation}
+
+\subsection{Mezinárodní Atomový čas (TAI)}
+Mezinárodní atomový čas (\zk{TAI}, Temps Atomique International) je získán prostřednictvím měření času množstvím nejpřesnějších atomových hodin po celém světě. Časy jednotlivých hodin se liší vlivem systematických chyb a vlivem relativistic\-kých efektů. Po zavedení oprav pro každé atomové hodiny, je \zkratka{TAI} získán jako vážený průměr časů všech zapojených hodin \cite{kostelecky_geodeticka_astronomie} \cite{fixel_geodeticka_astronomie}. Z~\zk{TAI} vychází i GPS čas, který byl zvolen tak, aby se rovnal času \zk{UTC} v~epoše GPS 6. ledna 1980 \cite{kostelecky_glob_poloh_sourad_syst_skripta}. Vztah mezi \zk{TAI} a GPS časem je:
+\begin{equation}
+    GPS=TAI -19~s
+\end{equation}
+
+\subsection{Univerzální koordinovaný čas (UTC)}% opravit nezmiňovat lidi
+Jelikož \zk{TAI} není vázaný na rotaci Země a UT1 je nerovnoměrný, byl zaveden \zkratka{UTC}. Ten vychází z~\zk{TAI}, ale je uměle udržován v~blízkosti rotačního času UT1. Délka sekundy TAI i \zk{UTC} je shodná. Vlivem nerovnoměrné rotace Země se přidává přestupná sekunda, která udržuje čas \zk{UTC} v~blízkosti UT1. Rozdíl mezi \zk{UTC} a UT1 je nazýván DUT1 a nikdy nepřesáhne hodnotu ±0,9s. Rozdíl mezi \zk{TAI} a \zk{UTC} je počet přestupných sekund n \cite{kostelecky_geodeticka_astronomie}.
+\begin{equation}
+    DUT1=UT1-UTC
+\end{equation}
+\begin{equation}
+    n = TAI - UTC
+\end{equation}
+UTC se běžně používá jako občanský čas. Vychází z~něj i pásmové varianty SEČ a SELČ, které vznikají přičtením jedné, respektive dvou hodin. UTC slouží také pro tvorbu rádiových časových signálů \cite{kostelecky_geodeticka_astronomie}.

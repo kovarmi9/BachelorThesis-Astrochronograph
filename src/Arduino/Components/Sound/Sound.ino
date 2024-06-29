@@ -1,8 +1,8 @@
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
-SoftwareSerial mySoftwareSerial(A1, A0); // TX, RX
-//SoftwareSerial mySoftwareSerial(D3, D1); // TX, RX
+//SoftwareSerial mySoftwareSerial(A1, A0); // RX, TX//po prohození kabelů
+SoftwareSerial mySoftwareSerial(A0, A1); // RX, TX
 DFRobotDFPlayerMini myDFPlayer;
 
 void setup(){

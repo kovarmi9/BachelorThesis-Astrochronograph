@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
-SoftwareSerial mySoftwareSerial(A1, A0); // TX, RX
+SoftwareSerial mySoftwareSerial(A0, A1); // TX, RX
 //SoftwareSerial mySoftwareSerial(D3, D1); // TX, RX
 DFRobotDFPlayerMini myDFPlayer;
 
@@ -14,7 +14,7 @@ void loop() {
     if (millis() - timer > 3000) {
     timer = millis();
     myDFPlayer.volume(30); //Set volume value. From 0 to 30
-    myDFPlayer.play(2); //Play first mp3 every 3 second.
+    myDFPlayer.play(001); //Play first mp3 every 3 second.
   }
 }
 

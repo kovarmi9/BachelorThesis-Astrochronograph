@@ -1,0 +1,16 @@
+\chapter{Závěr}
+\label{7-zaver}
+
+Cílem této práce bylo vytvořit zařízení pro příjem a záznam koordinovaného času určené pro účely astronomického měření (Astrochronograf). Toto zařízení má sloužit jako výuková pomůcka pro měření astronomických azimutů na Slunce v~rámci výuky teoretické geodézie.
+
+Práce začala rešerší, během níž byly dohledány zdroje informací, týkající se témat spojených s~určováním času. Byly také dohledány cizí práce, které se zabývaly určováním času pro různé účely. Tyto zdroje poskytly informace o~tom, jakým vhodným způsobem při tvorbě zařízení lze postupovat.
+
+V~teoretické části byly popsány jednotlivé typy časů a převody mezi nimi. Byl rozebrán vliv chyby při určování času na přesnost výsledných astronomických azi\-mutů. Nakonec byly zmíněny způsoby, jak lze synchronizovat čas zařízení.
+
+V~praktické části byl navržen Astrochronograf. Byla vytvořena \zk{DPS} k~\text{propojení} všech využitých komponentů. Byl vytvořen řídící kód pro jednotlivé části zařízení. Dále byl vyhotoven prototyp zařízení, který je založen na Arduinu UNO R3. Z~dů\-vodu nedostatečné kapacity paměti Arduina UNO R3 má tento prototyp pouze omezenou funkcionalitu. Nicméně umožňuje synchronizaci času prostřednictvím \text{rádiového} \text{přijímače} DCF77 nebo prostřednictvím GNSS přijímače. Zařízení infor\-muje měřiče o~průběhu měření prostřednictvím displeje, \zk{LED} a zvukových pokynů tak, aby při měření nemusel měřič vizuálně sledovat zařízení.
+
+Komponenty a pro ně vyhotovené řídící kódy, které nebyly do prototypu zahrnuty, byly samostatně testovány, jsou plně funkční a plánuje se jejich implementace do \text{zařízení}. Aby bylo možné tyto komponenty do zařízení implementovat, bude nutné vyměnit Arduino UNO R3 za Arduino UNO R4. Všechny komponenty a jejich řídící kódy byly testovány i na Arduinu UNO R4, a tak bude potřeba pouze fyzicky propojit komponenty. K~tomu bude sloužit nová deska plošných spojů, která je lehce jinak uspořádaná než \zk{DPS} použitá v~prototypu. Změna uspořádání komponentů na \zk{DPS} byla provedena z~důvodu, aby byla \zk{DPS} kompatibilní s~rozvržením pinů jak pro Arduino UNO R3, tak pro Arduino UNO R4. Tato \zk{DPS} bohužel dorazila až těsně před odevzdáním této práce, a tak je prozatím funkční pouze prototyp zařízení.
+
+Tato práce je včetně zdrojových kódu veřejně dostupná na GitHubu, aby mohla sloužit jako zdroj informací pro lidi, kteří se budou v~budoucnu zabývat podobnými tématy.
+
+% zařízení bylo vyztkoušeno a výstupem je zařízení které umí...
